@@ -9,7 +9,7 @@ const TeamSchema = new mongoose.Schema({
         jsLevel: {
             type: String,
             enum: {
-                values: ["absolute beginner", "beginner", "intermediate"],
+                values: ["absolute-beginner", "beginner", "intermediate"],
             }
         }
     }],
@@ -20,7 +20,7 @@ const TeamSchema = new mongoose.Schema({
         jsLevel: {
             type: String,
             enum: {
-                values: ["absolute beginner", "beginner", "intermediate"],
+                values: ["absolute-beginner", "beginner", "intermediate"],
             }
         }
     }]
