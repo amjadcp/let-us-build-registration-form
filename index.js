@@ -19,7 +19,7 @@ app.get('/', (req, res)=>{
 
 app.post('/', async(req, res)=>{
     let {name, email, phoneNumber, jsLevel, bringLaptop} = req.body
-    // bringLaptop = Boolean(bringLaptop)
+    let luckyNumber
     if(bringLaptop==='true') bringLaptop=true
     else bringLaptop=false
     // save the team
@@ -41,17 +41,21 @@ app.post('/', async(req, res)=>{
                     team.membersWithoutLap.push({name, email, phoneNumber, jsLevel, bringLaptop})
                     await team.save()
                 } 
+                console.log('team : ',team);
+                smtp.connect(email, team.team)
             }else if(team===lastTeam){
                 if(bringLaptop===true) await TeamSchema.create({ team: String(parseInt(lastTeam.team)+1), membersWithLap: {name, email, phoneNumber, jsLevel} }) // with lap
                 else await TeamSchema.create({ team: String(parseInt(lastTeam.team)+1), membersWithoutLap: {name, email, phoneNumber, jsLevel} }) // without lap
+                smtp.connect(email, String(parseInt(lastTeam.team)+1))
             }
         })
     }else{
         console.log('yesssssss');
         if(bringLaptop===true) await TeamSchema.create({ team: '1', membersWithLap: {name, email, phoneNumber, jsLevel} }) // with lap
         else await TeamSchema.create({ team: '1', membersWithoutLap: {name, email, phoneNumber, jsLevel} }) // without lap
+        smtp.connect(email, '1')
     }
-    // smtp.connect(email, 'yesssssssssssssss')
+    console.log(luckyNumber);
     res.redirect('/')
 })
 
