@@ -11,13 +11,20 @@ app.use('/static', express.static(__dirname+'/static'))  // serve static files
 db.connect()
 
 app.get('/', (req, res)=>{
+    fs.readFile(__dirname+'/template/index.html', (err, data)=>{
+        res.write(data)
+        res.end()
+    })
+})
+
+app.get('/form', (req, res)=>{
     fs.readFile(__dirname+'/template/form.html', (err, data)=>{
         res.write(data)
         res.end()
     })
 })
 
-app.post('/', async(req, res)=>{
+app.post('/form', async(req, res)=>{
     console.log(req.body);
     let {name, email, phoneNumber, jsLevel, bringLaptop} = req.body
     let luckyNumber
