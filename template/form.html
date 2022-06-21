@@ -124,7 +124,7 @@
 
 			<!-- Input Type Text -->
 			<input type="number"
-				id="department"
+				id="phoneNumber"
 				placeholder="Enter your phone number" 
                 name="phoneNumber"
 				required 
@@ -137,7 +137,7 @@
 			</label>
 			
 			<!-- Dropdown options -->
-			<select name="jsLevel" id="role">
+			<select name="jsLevel" id="level">
 				<option value="absolute-beginner">Absolute Beginner</option>
 				<option value="beginner">Beginner</option>
 				<option value="intermediate">Intermediate</option>
@@ -161,8 +161,24 @@
 		</div>
 
 		<!-- Multi-line Text Input Control -->
-		<input class="btn btn-primary" type="submit" value="Submit">
+		<input class="btn btn-primary" type="submit" value="Submit" onclick="clicked()">
 	</form>
+
+	<script>
+		function clicked(){
+			const name = document.getElementById('name').value
+			const email = document.getElementById('email').value
+			const phoneNumber = document.getElementById('phoneNumber').value
+			console.log(name);
+			if(name!=='' && email!=='' && phoneNumber!=='') 
+			alert(
+				`
+Submitted 🥳
+Please Check your mail, ${email} for your lucky number
+				`
+			)
+		}
+	</script>
 </body>
 
 </html>

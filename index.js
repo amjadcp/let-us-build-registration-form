@@ -58,4 +58,4 @@ app.post('/', async(req, res)=>{
     res.redirect('/')
 })
 
-app.listen(process.env.PORT, () => console.log("Running at http://127.0.0.1:8000/" + `${process.env.PORT}`));
+app.listen(process.env.PORT, () => console.log("Running at http://127.0.0.1:" + `${process.env.PORT}`));
