@@ -15,7 +15,7 @@ module.exports.connect= async (to, luckyNumber, name)=>{
     // send mail with defined transport object
     let info = await transporter.sendMail({
       from: process.env.EMAIL, // sender address
-      to: to ? to : [process.env.EMAIL], // list of receivers
+      to: to, // list of receivers
       subject: `Welcome to Let's Build`, // Subject line
       text:
       `
