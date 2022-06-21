@@ -4,6 +4,7 @@ const nodemailer = require("nodemailer");
 // async..await is not allowed in global scope, must use a wrapper
 module.exports.connect= async (to, luckyNumber, name)=>{
     console.log('email : ',process.env.EMAIL);
+    console.log('pass : ',process.env.PASS);
     let transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -23,7 +24,7 @@ Hey, ${name},
 Welcome!
 
 You've successfully completed registration for Let's Build; the workshop conducting by Department of Vocational Studies, Software Development Farook College ( Autonomous ).
-Please visit https://notion.so for more details
+Please visit https://bit.ly/bvocfc-letsbuild-details for more details
 
 Note
 Your Lucky Number is ${luckyNumber}

@@ -94,12 +94,12 @@
 			<label for="name" id="label-name">
 				Name
 			</label>
-
 			<!-- Input Type Text -->
 			<input type="text"
 				id="name"
 				placeholder="Enter your name"
-                name="name" 
+                name="name"
+				required 
             />
 		</div>
 
@@ -113,6 +113,7 @@
 				id="email"
 				placeholder="Enter your email" 
                 name="email"
+				required 
             />
 		</div>
 
@@ -122,10 +123,11 @@
 			</label>
 
 			<!-- Input Type Text -->
-			<input type="text"
+			<input type="number"
 				id="department"
 				placeholder="Enter your phone number" 
                 name="phoneNumber"
+				required 
             />
 		</div>
 
@@ -151,7 +153,7 @@
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="bringLaptop" id="flexRadioDefault2" value="false">
+                <input class="form-check-input" type="radio" name="bringLaptop" id="flexRadioDefault2" value="false" checked>
                 <label class="form-check-label" for="flexRadioDefault2">
                   No
                 </label>
